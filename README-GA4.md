@@ -25,7 +25,7 @@ Tracker les conversions blog → app avec événements custom et dimensions pers
 
 ### Étape 1 : Ajouter les scripts dans le `<head>`
 
-Ouvrir votre fichier `index.html` (ou template Framer) et ajouter **dans le `<head>`** :
+Ouvrir votre fichier `index.html` (site statique) et ajouter **dans le `<head>`** :
 
 ```html
 <!-- Google Analytics 4 -->
@@ -40,8 +40,8 @@ Ouvrir votre fichier `index.html` (ou template Framer) et ajouter **dans le `<he
 
 ### Étape 2 : Uploader `ga4-tracking.js`
 
-- Copier le fichier `ga4-tracking.js` à la racine de votre site Framer
-- Ou l'uploader dans les assets Framer et référencer avec le bon chemin
+- Copier le fichier `ga4-tracking.js` à la racine de votre repo GitHub
+- Ou l'ajouter au repo et référencer avec le bon chemin
 
 ### Étape 3 : Tagger vos éléments HTML
 
@@ -187,7 +187,7 @@ Checklist de test :
 
 ### Checklist pré-déploiement
 
-- [ ] Fichiers uploadés sur Framer
+- [ ] Fichiers ajoutés au repo GitHub + déployés
 - [ ] Scripts ajoutés dans le `<head>`
 - [ ] Custom dimensions créées dans GA4
 - [ ] Conversions marquées dans GA4
