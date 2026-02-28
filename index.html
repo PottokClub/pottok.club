@@ -1363,18 +1363,9 @@ navigationcontainer [data-framer-component-type="NavigationContainer"] > *, [dat
 
 html body { background: rgb(255, 255, 255); }
 
-#chatbot-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
-#chatbot-toggle { background-color: rgb(245, 246, 255); color: rgb(198, 6, 76); border: none; border-radius: 50%; width: 60px; height: 60px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px; display: flex; align-items: center; justify-content: center; }
-#chatbot-window { position: absolute; bottom: 80px; right: 0px; width: 450px; max-width: 95vw; height: 80vh; border: 1px solid rgb(204, 204, 204); border-radius: 10px; background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; overflow: hidden; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; transform: translateY(100%); opacity: 0; pointer-events: none; }
-#chatbot-window.open { transform: translateY(0px); opacity: 1; pointer-events: all; }
 @media (max-width: 600px) {
-  #chatbot-window { width: 95vw; }
 }
-#chatbot-header { background-color: rgb(198, 6, 76); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
 #clear-chat { background: none; border: none; color: white; cursor: pointer; }
-#chatbot-messages { height: calc(100% - 120px); overflow-y: auto; padding: 15px; background-color: rgb(247, 248, 255); }
-#chatbot-input-container { display: flex; padding: 10px; background-color: white; }
-#chatbot-input { flex-grow: 1; padding: 10px; border: 1px solid rgb(204, 204, 204); border-radius: 20px; margin-right: 10px; }
 #send-message { background-color: rgb(198, 6, 76); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .ai-message, .human-message { max-width: 80%; padding: 10px; margin: 5px; border-radius: 15px; animation: 0.3s ease 0s 1 normal none running fadeIn; overflow-wrap: break-word; font-family: "Rethink Sans", sans-serif; font-size: 14px; }
 .human-message { align-self: flex-end; background-color: rgb(198, 6, 76); color: white; }
@@ -1561,174 +1552,11 @@ html body { background: rgb(255, 255, 255); }
     <!-- Start of bodyEnd -->
      <!-- Include this script in the footer of your Webflow site -->
  <!-- Include this script in the footer of your Webflow site -->
-<div id="chatbot-container">
-  <button id="chatbot-toggle">
-    <svg id="chat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
-    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  </button>
-
-  <div id="chatbot-window" class="open">
-    <div id="chatbot-header">
-      <span>Chat avec Pottok</span>
-      <button id="clear-chat">Effacer</button>
-    </div>
-    <div id="chatbot-messages"><div class="ai-message">Bonjour 🐴,<br>Je suis Pottok, l'assistant qui trouve ta demi-pension !<br>Dans quelle ville habites-tu ?</div></div>
-    <div id="chatbot-input-container">
-      <input type="text" id="chatbot-input" placeholder="Tapez votre message...">
-      <button id="send-message">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="22" y1="2" x2="11" y2="13"></line>
-          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-
-<style>
-  #chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
-
-  #chatbot-toggle {
-    background-color: #f5f6ff;
-    color: #C6064C;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #chatbot-window {
-    position: absolute;
-    bottom: 80px;
-    right: 0;
-    width: 450px;
-    max-width: 95vw;
-    height: 80vh;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    transform: translateY(100%);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  #chatbot-window.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  @media (max-width: 600px) {
-    #chatbot-window {
-      width: 95vw;
-    }
-  }
-
-  #chatbot-header {
-    background-color: #C6064C;
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  #clear-chat {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-
-  #chatbot-messages {
-    height: calc(100% - 120px);
-    overflow-y: auto;
-    padding: 15px;
-    background-color: #f7f8ff;
-  }
-
-  #chatbot-input-container {
-    display: flex;
-    padding: 10px;
-    background-color: white;
-  }
-
-  #chatbot-input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-right: 10px;
-  }
-
-  #send-message {
-    background-color: #C6064C;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ai-message, .human-message {
-    max-width: 80%;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 15px;
-    animation: fadeIn 0.3s;
-    word-wrap: break-word;
-    font-family: 'Rethink Sans', sans-serif;
-    font-size: 14px;
-  }
-
-  .human-message {
-    align-self: flex-end;
-    background-color: #C6064C;
-    color: white;
-  }
-
-  .ai-message {
-    align-self: flex-start;
-    background-color: #f0f0f0;
-    color: #C6064C;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
 <script>
   (function() {
     var sessionId = uuid.v4();
-    var chatbotOpened = false;
 
     function displayInitialMessage() {
-      var messageContainer = document.getElementById('chatbot-messages');
       var botMessageElement = createMessageElement("Bonjour 🐴,<br>Je suis Pottok, l'assistant qui trouve ta demi-pension !<br>Dans quelle ville habites-tu ?", 'ai');
       messageContainer.appendChild(botMessageElement);
       messageContainer.scrollTop = messageContainer.scrollHeight;
@@ -1754,10 +1582,8 @@ html body { background: rgb(255, 255, 255); }
     }
 
     function sendMessage() {
-      var input = document.getElementById('chatbot-input');
       var message = input.value.trim();
       if (message) {
-        var messageContainer = document.getElementById('chatbot-messages');
         var userMessageElement = createMessageElement(message, 'human');
         messageContainer.appendChild(userMessageElement);
         input.value = '';
@@ -1789,8 +1615,6 @@ html body { background: rgb(255, 255, 255); }
       }
     }
 
-    document.getElementById('chatbot-toggle').addEventListener('click', function() {
-      var chatWindow = document.getElementById('chatbot-window');
       var chatIcon = document.getElementById('chat-icon');
       var closeIcon = document.getElementById('close-icon');
 
@@ -1799,9 +1623,7 @@ html body { background: rgb(255, 255, 255); }
       if (chatWindow.classList.contains('open')) {
         chatIcon.style.display = 'none';
         closeIcon.style.display = 'block';
-        if (!chatbotOpened) {
           displayInitialMessage();
-          chatbotOpened = true;
         }
       } else {
         chatIcon.style.display = 'block';
@@ -1811,7 +1633,6 @@ html body { background: rgb(255, 255, 255); }
 
     // Auto-open chat after 5 seconds
     setTimeout(function() {
-      var chatWindow = document.getElementById('chatbot-window');
       var chatIcon = document.getElementById('chat-icon');
       var closeIcon = document.getElementById('close-icon');
 
@@ -1819,18 +1640,14 @@ html body { background: rgb(255, 255, 255); }
       chatIcon.style.display = 'none';
       closeIcon.style.display = 'block';
 
-      if (!chatbotOpened) {
         displayInitialMessage();
-        chatbotOpened = true;
       }
     }, 5000);
 
     document.getElementById('clear-chat').addEventListener('click', function() {
-      document.getElementById('chatbot-messages').innerHTML = '';
       displayInitialMessage();
     });
 
-    document.getElementById('chatbot-input').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
         sendMessage();
       }
@@ -1846,4 +1663,6 @@ html body { background: rgb(255, 255, 255); }
 <div style="display: contents;"><div style="right: 0px; bottom: 0px; box-sizing: border-box; position: fixed; touch-action: none; padding: 20px; z-index: 10; display: flex; flex-direction: row; gap: 20px; justify-content: center; pointer-events: none;"><div style="width: 100%; height: 100%; display: flex; justify-content: flex-end; align-items: flex-end; pointer-events: none; max-width: unset;"><div style="font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; max-height: calc(-40px + 100vh); flex-direction: column; gap: 12px; position: relative; display: flex; z-index: 100; pointer-events: auto; opacity: 1; transform: none; will-change: transform;"><div class="--framer-cookie-banner-container --framer-cookie-banner-type-medium" style="background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px inset; overflow: scroll; border-radius: 14px; width: 100%; max-width: 360px;"><div style="padding: 20px;"><div><p style="font-size: 14px; margin: 0px 0px 10px; font-weight: bold; padding: 0px; color: rgb(0, 0, 0);">Cookie Settings</p><p style="line-height: 1.5; margin: 0px; padding: 0px; font-size: 14px; color: rgb(68, 68, 68);">Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic sur le site et fournir un contenu personnalisé. <span>Read our <a href="https://www.framer.com/legal/policy/" target="_blank" style="color: rgb(153, 153, 153); text-decoration: none;">Cookie Policy</a>.</span></p></div><div style="display: flex; flex-direction: row; gap: 10px; margin-top: 16px;"><input class="__framer-cookie-component-button" id="__framer-cookie-component-button-reject" type="button" tabindex="0" value="Refuser" style="appearance: none; width: 100%; height: auto; border: none; padding: 10px; border-radius: 8px; background: rgb(238, 238, 238); color: rgb(68, 68, 68); font-size: 14px; line-height: 1; cursor: pointer; font-weight: unset;"><input class="__framer-cookie-component-button" id="__framer-cookie-component-button-accept" type="button" tabindex="0" value="Accepter" style="appearance: none; width: 100%; height: auto; border: none; padding: 10px; border-radius: 8px; background: var(--token-f28cc8b7-ba23-426f-8c06-8ea41430e785, rgb(198, 6, 76)); color: rgb(255, 255, 255); font-size: 14px; line-height: 1; cursor: pointer; font-weight: unset;"></div></div></div></div></div></div></div>
 <!-- stripped -->
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=817661446571272&amp;ev=PageView&amp;noscript=1"></noscript>
+  <link rel="stylesheet" href="/chatbot-widget.css">
+  <script src="/chatbot-widget.js"></script>
 </body></html>
