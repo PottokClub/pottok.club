@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pottok - Co-pension équestre</title>
+  
+  <!-- 
+    ========================================
+    GOOGLE ANALYTICS 4 - INTÉGRATION
+    ========================================
+    
+    ÉTAPE 1 : Ajouter le script gtag.js
+    À placer dans le <head> AVANT ga4-tracking.js
+  -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-353847055"></script>
+  
+  <!-- 
+    ÉTAPE 2 : Ajouter le script de tracking custom
+    À placer APRÈS le gtag.js
+  -->
+  <script src="/ga4-tracking.js"></script>
+  
+  <!-- 
+    Fin de l'intégration GA4
+    ======================================== 
+  -->
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 0;
+    }
+    .cta-button {
+      background: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    .store-badges {
+      margin: 30px 0;
+    }
+    .store-badges img {
+      height: 50px;
+      margin: 0 10px;
+    }
+    footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 
+    ============================================
+    EXEMPLES D'UTILISATION DU TRACKING GA4
+    ============================================
+  -->
+
+  <section class="hero">
+    <h1>Pottok - Trouvez votre co-pension idéale</h1>
+    <p>La première app dédiée à la co-pension équestre en France</p>
+    
+    <!-- 
+      Exemple 1 : Bouton CTA avec tracking auto
+      Ajouter data-ga4-cta="nom_location"
+      Optionnel: data-ga4-platform="apple" | "android"
+    -->
+    <button 
+      class="cta-button" 
+      data-ga4-cta="hero"
+      data-ga4-platform="apple"
+      onclick="window.location.href='https://apps.apple.com/app/pottok'"
+    >
+      📱 Télécharger sur iOS
+    </button>
+    
+    <button 
+      class="cta-button" 
+      data-ga4-cta="hero"
+      data-ga4-platform="android"
+      onclick="window.location.href='https://play.google.com/store/apps/details?id=com.pottok.app'"
+    >
+      🤖 Télécharger sur Android
+    </button>
+  </section>
+
+  <section>
+    <h2>Téléchargez l'app</h2>
+    
+    <!-- 
+      Exemple 2 : Liens store avec tracking auto
+      Les liens vers apps.apple.com et play.google.com sont automatiquement trackés
+    -->
+    <div class="store-badges">
+      <a href="https://apps.apple.com/app/pottok">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/fr-fr" alt="App Store">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.pottok.app">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Google Play">
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Restez informé</h2>
+    
+    <!-- 
+      Exemple 3 : Formulaire newsletter avec tracking
+      Ajouter data-ga4-newsletter="nom_location"
+    -->
+    <form data-ga4-newsletter="footer" onsubmit="return false;">
+      <input type="email" placeholder="Votre email" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>
+      <!-- 
+        Exemple 4 : Lien contact avec tracking
+        Ajouter data-ga4-contact="nom_location"
+      -->
+      <a href="mailto:contact@pottok.club" data-ga4-contact="footer">
+        📧 Contactez-nous
+      </a>
+    </p>
+    
+    <p>
+      <!-- 
+        Exemple 5 : Liens sociaux avec tracking
+        Ajouter data-ga4-social="platform_name"
+      -->
+      <a href="https://instagram.com/pottokclub" data-ga4-social="instagram">Instagram</a> |
+      <a href="https://facebook.com/pottokclub" data-ga4-social="facebook">Facebook</a>
+    </p>
+    
+    <p style="margin-top: 40px; color: #999; font-size: 14px;">
+      © 2026 Pottok - Co-pension équestre
+    </p>
+  </footer>
+
+  <!-- 
+    ============================================
+    TRACKING MANUEL (si besoin)
+    ============================================
+    
+    Vous pouvez aussi utiliser l'API JavaScript directement :
+    
+    // CTA download
+    GA4Tracker.trackCTADownload('hero', 'apple', 'button');
+    
+    // Store click
+    GA4Tracker.trackStoreClick('app_store', 'footer', 'badge');
+    
+    // Newsletter
+    GA4Tracker.trackNewsletterSignup('popup');
+    
+    // Contact
+    GA4Tracker.trackContactClick('header');
+    
+    // Social
+    GA4Tracker.trackSocialClick('instagram', 'footer');
+    
+    // QR Code
+    GA4Tracker.trackQRCodeView('hero');
+    
+    // Événement générique
+    GA4Tracker.trackEvent('custom_event', {
+      custom_param: 'value'
+    });
+  -->
+
+</body>
+</html>
