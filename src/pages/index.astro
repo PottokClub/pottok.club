@@ -12,12 +12,37 @@ import BlogPreviewSection from '../components/sections/BlogPreviewSection.astro'
 import DownloadCTASection from '../components/sections/DownloadCTASection.astro';
 import FAQSection from '../components/sections/FAQSection.astro';
 import AmbassadriceSection from '../components/sections/AmbassadriceSection.astro';
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pottok",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "iOS, Android",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1200"
+  },
+  "description": "Trouve facilement un cheval en demi-pension près de chez toi. Gratuit, simple et sécurisé.",
+  "url": "https://pottok.club",
+  "downloadUrl": "https://apps.apple.com/app/pottok/id6478774635"
+};
 ---
 
 <Layout
   title="Demi Pension Cheval : Trouve ton cheval près de chez toi | Pottok"
   description="Demi pension cheval : Trouve facilement un cheval en demi-pension près de chez toi. Gratuit, simple et sécurisé. Rejoins +1000 cavaliers dès aujourd'hui !"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+  </Fragment>
+
   <Header />
   <main>
     <HeroSection />

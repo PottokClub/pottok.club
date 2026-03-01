@@ -33,9 +33,24 @@ const faqs = [
     answer: "Tu viens de tomber sur une annonce coup de cœur ? Clique sur le cœur en haut à droite ! Tu pourras ensuite retrouver tous tes favoris enregistrés dans l'onglet dédié.",
   },
 ];
+
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <section id="faq" class="bg-background py-20 md:py-28">
+  <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
+  
   <div class="mx-auto max-w-3xl px-5">
     <!-- Section header -->
     <div class="mb-6 text-center">

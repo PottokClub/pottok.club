@@ -59,6 +59,19 @@ const ogImage = new URL('/og-image.png', Astro.site);
     <!-- Slot for child layouts (e.g. BlogLayout meta tags) -->
     <slot name="head" />
 
+    <!-- Axeptio RGPD Cookies -->
+    <script is:inline>
+      window.axeptioSettings = {
+        clientId: "65f8a9c1e2f3d4a5b6c7d8e9",
+        cookiesVersion: "pottok-fr-2026"
+      };
+      (function(d, s) {
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+        e.async = true; e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+      })(document, "script");
+    </script>
+
     <!-- GA4 -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-353847055"></script>
     <script is:inline>

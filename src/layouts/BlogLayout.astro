@@ -14,6 +14,33 @@ interface Props {
 const { title, description, date, image, tags = [] } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? new URL(image, Astro.site) : new URL('/og-image.png', Astro.site);
+
+const schemaArticle = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": ogImage.toString(),
+  "datePublished": date,
+  "dateModified": date,
+  "author": {
+    "@type": "Organization",
+    "name": "Pottok",
+    "url": "https://pottok.club"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pottok",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pottok.club/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalURL.toString()
+  }
+};
 ---
 
 <Layout title={`${title} | Blog Pottok`} description={description}>
@@ -23,6 +50,7 @@ const ogImage = image ? new URL(image, Astro.site) : new URL('/og-image.png', As
     {tags.map((tag) => (
       <meta property="article:tag" content={tag} />
     ))}
+    <script type="application/ld+json" set:html={JSON.stringify(schemaArticle)} />
   </Fragment>
 
   <Header />
