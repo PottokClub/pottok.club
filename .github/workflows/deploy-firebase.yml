@@ -2,7 +2,7 @@ name: Deploy to Firebase Hosting
 
 on:
   push:
-    branches: [main, v2-astro]
+    branches: [main, v2-astro, feature/chatbot-redesign-pot-99]
 
 jobs:
   deploy:
@@ -30,5 +30,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: ${{ github.ref_name == 'main' && 'live' || 'staging' }}
+          channelId: ${{ github.ref_name == 'main' && 'live' || (github.ref_name == 'feature/chatbot-redesign-pot-99' && 'chatbot-preview' || 'staging') }}
           projectId: pottok-7b9ef
