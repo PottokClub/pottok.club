@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Clubs équestres : proposez des demi-pensions avec Pottok"
+  description="Clubs équestres, simplifiez la gestion de vos demi-pensions avec Pottok. Trouvez des cavaliers motivés pour vos chevaux."
+  noindex={true}
+>
+  <Header />
+
+  <main class="pt-32 pb-20 md:pt-40 md:pb-28">
+    <div class="mx-auto max-w-3xl px-5 text-center">
+      <div class="mb-6 inline-flex items-center gap-2 rounded-[var(--radius-pill)] bg-badge-bg px-5 py-2">
+        <span class="text-sm font-600 text-badge-text">Pour les clubs</span>
+      </div>
+
+      <h1 class="font-heading text-[clamp(2rem,5vw,3.25rem)] font-800 leading-tight text-foreground">
+        Proposez des demi-pensions pour vos chevaux de club
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-body">
+        Pottok aide les clubs équestres à trouver des cavaliers motivés pour des demi-pensions sur vos chevaux. Simplifiez la gestion, augmentez vos revenus et offrez de nouvelles opportunités à vos adhérents.
+      </p>
+
+      <div class="mt-10">
+        <a
+          href="mailto:contact@pottok.club"
+          class="inline-flex items-center gap-2 rounded-[var(--radius-pill)] bg-primary px-8 py-3.5 text-base font-600 text-white transition-colors hover:bg-primary-hover"
+        >
+          Contactez-nous
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

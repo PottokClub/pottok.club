@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import FeaturesSection from '../components/sections/FeaturesSection.astro';
+import AnnoncesSection from '../components/sections/AnnoncesSection.astro';
+import HowItWorksSection from '../components/sections/HowItWorksSection.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
+import StatsSection from '../components/sections/StatsSection.astro';
+import BlogPreviewSection from '../components/sections/BlogPreviewSection.astro';
+import DownloadCTASection from '../components/sections/DownloadCTASection.astro';
+import FAQSection from '../components/sections/FAQSection.astro';
+import AmbassadriceSection from '../components/sections/AmbassadriceSection.astro';
+---
+
+<Layout
+  title="Demi Pension Cheval : Trouve ton cheval près de chez toi | Pottok"
+  description="Demi pension cheval : Trouve facilement un cheval en demi-pension près de chez toi. Gratuit, simple et sécurisé. Rejoins +1000 cavaliers dès aujourd'hui !"
+>
+  <Header />
+  <main>
+    <HeroSection />
+    <AmbassadriceSection />
+    <FeaturesSection />
+    <AnnoncesSection />
+    <HowItWorksSection />
+    <DownloadCTASection />
+    <TestimonialsSection />
+    <StatsSection />
+    <FAQSection />
+    <BlogPreviewSection />
+  </main>
+  <Footer />
+</Layout>

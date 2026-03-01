@@ -1,11 +1,10 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "README.md"
+      "**/node_modules/**"
     ],
     "headers": [
       {
@@ -55,13 +54,6 @@
             "value": "strict-origin-when-cross-origin"
           }
         ]
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/blog/",
-        "destination": "/blog.html",
-        "type": 301
       }
     ],
     "cleanUrls": true,

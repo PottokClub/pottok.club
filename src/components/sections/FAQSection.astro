@@ -1,0 +1,83 @@
+---
+const faqs = [
+  {
+    question: 'Comment trouver une demi-pension pour mon cheval près de chez moi ?',
+    answer: "Pour accéder aux annonces près de chez toi, télécharge Pottok et accède à la carte interactive qui te géolocalisera si tu l'acceptes. Si non, il te suffit d'entrer le nom de ta ville dans la barre de recherche.",
+  },
+  {
+    question: 'Quels sont les avantages de choisir une demi-pension équestre ?',
+    answer: "La demi-pension, le compromis idéal ! Tu as la possibilité de créer une relation unique avec un cheval et de progresser à ton rythme sans devoir assumer tous les frais liés à l'entretien d'un cheval lorsqu'on est propriétaire.",
+  },
+  {
+    question: 'Comment fonctionne la demi-pension avec un cheval ?',
+    answer: "La demi-pension, c'est un accord passé entre le propriétaire et le demi-pensionnaire. Le propriétaire propose son cheval à la monte plusieurs jours par semaine et en contrepartie, le cavalier paie un montant équivalent généralement à la moitié du prix de la pension (mais celui-ci peut évoluer selon le nombre de jours proposés, si le coaching est compris, si des frais liés à certains soins s'ajoutent, etc).",
+  },
+  {
+    question: 'Comment Pottok facilite la recherche de chevaux en demi-pension ?',
+    answer: "Avec Pottok la recherche de demi-pension est simple et intuitive ! Plus besoin de passer des heures sur des groupes Facebook pour trouver la perle rare. Ici, des milliers d'annonces sont disponibles partout en France, Belgique, Suisse & Luxembourg. Après avoir consulté des annonces très détaillées, tu peux rapidement contacter les propriétaires et t'engager pour une demi-pension en toute confiance avec un cheval qui correspond vraiment à tes critères.",
+  },
+  {
+    question: 'Comment contacter un propriétaire ?',
+    answer: 'Pour contacter un propriétaire, rends-toi sur une annonce, scroll vers le bas et clique sur "Contacter". Tu pourras alors lui poser des questions sur son cheval et convenir d\'un rendez-vous pour un essai.',
+  },
+  {
+    question: 'Comment créer une alerte ?',
+    answer: "Pour être alerté(e) en premier lorsqu'une nouvelle annonce apparaît près de chez toi, active ton alerte ! Rendez-vous dans l'onglet \"Alertes\", renseigne ta ville et la distance maximum, il ne te reste plus qu'à l'activer.",
+  },
+  {
+    question: 'Comment créer mon contrat de demi-pension ?',
+    answer: 'Il faut te rendre sur une discussion dans la messagerie avec un propriétaire, lui seul peut-être à l\'origine de la création du contrat. Si tu es le propriétaire, clique sur "rédige un contrat" en haut à droite de la discussion.',
+  },
+  {
+    question: 'Comment créer une liste de favoris ?',
+    answer: "Tu viens de tomber sur une annonce coup de cœur ? Clique sur le cœur en haut à droite ! Tu pourras ensuite retrouver tous tes favoris enregistrés dans l'onglet dédié.",
+  },
+];
+---
+
+<section id="faq" class="bg-background py-20 md:py-28">
+  <div class="mx-auto max-w-3xl px-5">
+    <!-- Section header -->
+    <div class="mb-6 text-center">
+      <h2 class="font-heading text-[clamp(1.625rem,4vw,2.5rem)] font-800 leading-tight text-foreground">
+        FAQ : Tout savoir sur Pottok
+      </h2>
+    </div>
+    <p class="mx-auto mb-4 max-w-xl text-center text-lg text-body">
+      Retrouve ici les réponses aux questions les plus courantes sur l'application Pottok. Si tu ne trouves pas ce que tu cherches, n'hésite pas à nous contacter&nbsp;!
+    </p>
+    <p class="mb-12 text-center">
+      <a href="mailto:contact@pottok.club" class="font-600 text-primary underline underline-offset-2 hover:text-primary-hover">
+        Contacte-nous
+      </a>
+    </p>
+
+    <!-- FAQ Accordion -->
+    <div class="space-y-3">
+      {faqs.map((faq) => (
+        <details class="group rounded-[var(--radius-card)] border border-border bg-background transition-shadow open:shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-base font-600 text-foreground marker:content-[''] [&::-webkit-details-marker]:hidden">
+            <span>{faq.question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+            >
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5 text-base leading-relaxed text-body">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

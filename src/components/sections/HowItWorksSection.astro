@@ -1,0 +1,39 @@
+---
+const steps = [
+  'Télécharge l\'application depuis l\'App Store ou Google Play.',
+  'Parcours les annonces de demi-pension près de chez toi.',
+  'Crée des alertes personnalisées pour être informé dès qu\'une annonce correspond à tes critères.',
+  'Échange directement avec les propriétaires des chevaux qui t\'intéressent.',
+  'Génère automatiquement un contrat personnalisé et sécurisé pour finaliser l\'accord.',
+];
+---
+
+<section id="ccm" class="bg-card-bg py-20 md:py-28">
+  <div class="mx-auto max-w-5xl px-5">
+    <!-- Section header -->
+    <div class="mx-auto mb-6 max-w-2xl text-center">
+      <h2 class="font-heading text-[clamp(1.625rem,4vw,2.5rem)] font-800 leading-tight text-foreground">
+        Explore les étapes pour trouver ta demi-pension idéale
+      </h2>
+    </div>
+    <p class="mx-auto mb-14 max-w-xl text-center text-lg text-body">
+      Anaïs est cavalière sans cheval, elle veut trouver la demi-pension idéale pour continuer à monter régulièrement.
+    </p>
+
+    <!-- Steps -->
+    <div class="space-y-5">
+      {steps.map((step, index) => (
+        <div class="flex items-start gap-5 rounded-[var(--radius-steps)] bg-background p-6 shadow-sm md:items-center md:gap-8 md:p-8">
+          <!-- Number -->
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-800 text-white md:h-14 md:w-14 md:text-xl">
+            {index + 1}
+          </div>
+          <!-- Text -->
+          <p class="text-base leading-relaxed text-body md:text-lg">
+            {step}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

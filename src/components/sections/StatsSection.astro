@@ -1,0 +1,23 @@
+---
+const stats = [
+  { value: '1500', label: 'offres de demi-pension' },
+  { value: '2000', label: 'mises en relation' },
+];
+---
+
+<section class="bg-badge-bg py-16 md:py-20">
+  <div class="mx-auto max-w-4xl px-5">
+    <div class="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-24">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <p class="font-heading text-[clamp(3rem,8vw,5rem)] font-800 leading-none text-primary">
+            {stat.value}
+          </p>
+          <p class="mt-2 text-lg font-500 text-body">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

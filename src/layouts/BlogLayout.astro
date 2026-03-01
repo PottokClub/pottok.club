@@ -1,0 +1,78 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  image?: string;
+  tags?: string[];
+}
+
+const { title, description, date, image, tags = [] } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = image ? new URL(image, Astro.site) : new URL('/og-image.png', Astro.site);
+---
+
+<Layout title={`${title} | Blog Pottok`} description={description}>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={date} />
+    {tags.map((tag) => (
+      <meta property="article:tag" content={tag} />
+    ))}
+  </Fragment>
+
+  <Header />
+
+  <main class="pt-28 pb-20">
+    <article class="mx-auto max-w-3xl px-5">
+      <header class="mb-10">
+        <div class="mb-4 flex items-center gap-3 text-sm text-muted-foreground">
+          <time datetime={date}>{new Date(date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+          {tags.length > 0 && (
+            <span class="text-border">|</span>
+            <div class="flex gap-2">
+              {tags.map((tag) => (
+                <span class="rounded-full bg-badge-bg px-3 py-0.5 text-xs font-medium text-badge-text">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+        <h1 class="font-heading text-[clamp(2rem,5vw,3rem)] font-800 leading-tight text-foreground">
+          {title}
+        </h1>
+        <p class="mt-4 text-lg text-body">{description}</p>
+        {image && (
+          <img src={image} alt={title} width="768" height="480" class="mt-8 w-full rounded-[var(--radius-card)] object-cover" loading="eager" />
+        )}
+      </header>
+
+      <div class="prose prose-lg max-w-none
+        [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-700 [&_h2]:text-foreground [&_h2]:mt-12 [&_h2]:mb-4
+        [&_h3]:font-heading [&_h3]:text-xl [&_h3]:font-700 [&_h3]:text-foreground [&_h3]:mt-8 [&_h3]:mb-3
+        [&_p]:text-body [&_p]:leading-relaxed [&_p]:mb-5
+        [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-5 [&_ul]:text-body
+        [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-5 [&_ol]:text-body
+        [&_li]:mb-2
+        [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary-hover
+        [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-5 [&_blockquote]:italic [&_blockquote]:text-muted-foreground
+        [&_strong]:font-600 [&_strong]:text-foreground
+        [&_img]:rounded-[var(--radius-card)]
+      ">
+        <slot />
+      </div>
+
+      <footer class="mt-16 border-t border-border pt-8">
+        <a href="/blog" class="inline-flex items-center gap-2 text-primary font-600 hover:text-primary-hover transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Retour au blog
+        </a>
+      </footer>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
