@@ -14,7 +14,7 @@
 
   // Configuration
   const CONFIG = {
-    apiUrl: 'https://n8n-9z6l.onrender.com/webhook/3ee5f93c-8223-4d0a-b26b-ff121ee1497e',
+    apiUrl: 'https://europe-west1-pottok-7b9ef.cloudfunctions.net/chatbotWebAPI',
     autoOpenDelay: 0, // 0 = disabled (user must click)
     storageKey: 'pottok_chat_history',
     sessionKey: 'pottok_chat_session',
