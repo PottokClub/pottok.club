@@ -1,4 +1,6 @@
 ---
+import NewsletterForm from './NewsletterForm.astro';
+
 const navLinks = [
   { label: 'Nos avantages', href: '/#avantages' },
   { label: 'Comment ça marche', href: '/#ccm' },
@@ -41,19 +43,7 @@ const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.mycompan
         <p class="mb-6 text-sm leading-relaxed text-white/60">
           Inscrivez-vous à notre lettre d'information pour être tenu au courant des nouveautés.
         </p>
-        <form class="flex gap-2" onsubmit="return false;">
-          <input
-            type="email"
-            placeholder="Votre email"
-            class="flex-1 rounded-[var(--radius-pill)] border border-white/20 bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none focus:border-primary"
-          />
-          <button
-            type="submit"
-            class="rounded-[var(--radius-pill)] bg-primary px-5 py-2.5 text-sm font-600 text-white transition-colors hover:bg-primary-hover"
-          >
-            OK
-          </button>
-        </form>
+        <NewsletterForm />
       </div>
 
       <!-- Navigation -->
