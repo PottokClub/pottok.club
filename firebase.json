@@ -63,15 +63,15 @@
       { "source": "/blog/contrat-demi-pension-cheval-modele-gratuit.html", "destination": "/blog/contrat-demi-pension-cheval-modele-gratuit", "type": 301 },
       { "source": "/blog/demi-pension-cheval-debutant-guide-complet.html", "destination": "/blog/demi-pension-cheval-debutant-guide-complet", "type": 301 },
       { "source": "/blog/comment-mettre-son-cheval-en-demi-pension.html", "destination": "/blog/comment-mettre-son-cheval-en-demi-pension", "type": 301 },
-      { "source": "/blog/comment-trouver-une-demi-pension-en-%C3%AEle-de-france.html", "destination": "/blog/comment-trouver-une-demi-pension-en-ile-de-france", "type": 301 },
+      { "source": "/blog/comment-trouver-une-demi-pension-en-île-de-france.html", "destination": "/blog/comment-trouver-une-demi-pension-en-ile-de-france", "type": 301 },
       { "source": "/blog/quel-est-le-prix-d-une-demi-pension-cheval.html", "destination": "/blog/quel-est-le-prix-d-une-demi-pension-cheval", "type": 301 },
       { "source": "/blog/quel-galop-pour-une-demi-pension.html", "destination": "/blog/quel-galop-pour-une-demi-pension", "type": 301 },
       { "source": "/blog/quelle-assurance-pour-un-cheval-en-demi-pension.html", "destination": "/blog/quelle-assurance-pour-un-cheval-en-demi-pension", "type": 301 },
       { "source": "/blog/tiers-quart-et-demi-pension-quelle-formule-chosir.html", "destination": "/blog/tiers-quart-et-demi-pension-quelle-formule-choisir", "type": 301 },
       { "source": "/blog/trouver-une-demi-pension-avec-un-cheval-qui-match.html", "destination": "/blog/trouver-une-demi-pension-avec-un-cheval-qui-match", "type": 301 },
       { "source": "/blog/un-cheval-en-demi-pension-le-compromis-parfait.html", "destination": "/blog/un-cheval-en-demi-pension-le-compromis-parfait", "type": 301 },
-      { "source": "/blog/devenir-demi-pensionnaire-ou-propri%C3%A9taire-d-un-cheval.html", "destination": "/blog/devenir-demi-pensionnaire-ou-proprietaire-d-un-cheval", "type": 301 },
-      { "source": "/blog/le-contrat-de-demi-pension-pour-une-bonne-entente-avec-le-propri%C3%A9taire.html", "destination": "/blog/le-contrat-de-demi-pension-pour-une-bonne-entente-avec-le-proprietaire", "type": 301 }
+      { "source": "/blog/devenir-demi-pensionnaire-ou-propriétaire-d-un-cheval.html", "destination": "/blog/devenir-demi-pensionnaire-ou-proprietaire-d-un-cheval", "type": 301 },
+      { "source": "/blog/le-contrat-de-demi-pension-pour-une-bonne-entente-avec-le-propriétaire.html", "destination": "/blog/le-contrat-de-demi-pension-pour-une-bonne-entente-avec-le-proprietaire", "type": 301 }
     ],
     "cleanUrls": true,
     "trailingSlash": false
