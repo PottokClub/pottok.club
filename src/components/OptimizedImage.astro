@@ -1,0 +1,28 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, width, height, class: className = '', loading = 'lazy' } = Astro.props;
+
+// Convert .png to .webp
+const webpSrc = src.replace(/\.png$/, '.webp');
+const pngSrc = src;
+---
+
+<picture>
+  <source srcset={webpSrc} type="image/webp" />
+  <img 
+    src={pngSrc} 
+    alt={alt} 
+    width={width} 
+    height={height} 
+    class={className} 
+    loading={loading}
+  />
+</picture>

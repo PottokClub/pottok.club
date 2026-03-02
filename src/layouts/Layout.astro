@@ -48,51 +48,62 @@ const ogImage = new URL('/og-image.png', Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Rethink+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Rethink+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Slot for child layouts (e.g. BlogLayout meta tags) -->
     <slot name="head" />
 
-    <!-- Axeptio RGPD Cookies -->
+    <!-- Tracking Scripts - Deferred for Performance -->
     <script is:inline>
-      window.axeptioSettings = {
-        clientId: "65f8a9c1e2f3d4a5b6c7d8e9",
-        cookiesVersion: "pottok-fr-2026"
-      };
-      (function(d, s) {
-        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
-        e.async = true; e.src = "//static.axept.io/sdk.js";
-        t.parentNode.insertBefore(e, t);
-      })(document, "script");
-    </script>
+      // Defer all tracking to improve LCP
+      window.addEventListener('load', function() {
+        // Axeptio RGPD Cookies
+        window.axeptioSettings = {
+          clientId: "65f8a9c1e2f3d4a5b6c7d8e9",
+          cookiesVersion: "pottok-fr-2026"
+        };
+        (function(d, s) {
+          var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+          e.async = true; e.src = "//static.axept.io/sdk.js";
+          t.parentNode.insertBefore(e, t);
+        })(document, "script");
 
-    <!-- GA4 -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-353847055"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-353847055');
-    </script>
+        // GA4
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = "https://www.googletagmanager.com/gtag/js?id=G-353847055";
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-353847055');
 
-    <!-- Facebook Pixel -->
-    <script is:inline>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '817661446571272');
-      fbq('track', 'PageView');
+        // Facebook Pixel
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '817661446571272');
+        fbq('track', 'PageView');
+      });
     </script>
     <noscript>
       <img height="1" width="1" style="display:none"
@@ -102,8 +113,18 @@ const ogImage = new URL('/og-image.png', Astro.site);
   <body class="bg-background text-body antialiased">
     <slot />
 
-    <!-- Pottok Chatbot Widget -->
-    <link rel="stylesheet" href="/chatbot-widget.css">
-    <script is:inline src="/chatbot-widget.js"></script>
+    <!-- Pottok Chatbot Widget - Lazy loaded -->
+    <script is:inline>
+      window.addEventListener('load', function() {
+        var chatCSS = document.createElement('link');
+        chatCSS.rel = 'stylesheet';
+        chatCSS.href = '/chatbot-widget.css';
+        document.head.appendChild(chatCSS);
+        
+        var chatJS = document.createElement('script');
+        chatJS.src = '/chatbot-widget.js';
+        document.body.appendChild(chatJS);
+      });
+    </script>
   </body>
 </html>
