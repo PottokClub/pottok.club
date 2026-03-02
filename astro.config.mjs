@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pottok-clean.web.app',
+  site: 'https://pottok.club',
   vite: {
     plugins: [tailwindcss()]
   },
