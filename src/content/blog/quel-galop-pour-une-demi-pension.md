@@ -1,6 +1,6 @@
 ---
-title: "Quel galop pour une demi-pension ?"
-description: "Prendre un cheval en demi-pension implique d'avoir un niveau suffisant pour assurer le bien-être et la sécurité du cheval."
+title: "Quel Galop pour une Demi-Pension ? Guide Complet 2026"
+description: "Galop 2, 3 ou plus ? Découvrez le niveau requis pour trouver votre DP idéale + conseils pratiques pour cavaliers débutants et confirmés."
 date: "2025-01-17"
 author: "Pottok"
 tags: ["demi-pension", "galop", "niveau", "cheval", "équitation"]
